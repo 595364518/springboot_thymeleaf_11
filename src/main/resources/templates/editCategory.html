@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>editCategory</title>
+</head>
+<body>
+    <form action="updateCategory" method="post">
+        name:<input type="text" name="name" th:value="${c.name}"/>
+        <input name="id" th:value="${c.id}" type="hidden"/>
+        <input type="submit" value="修改"/>
+    </form>
+</body>
+</html>

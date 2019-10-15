@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -15,6 +16,7 @@ public class TestController {
         String htmlContent = "<p style='color:aqua;'>海蓝色文字</p>";
         Product p = new Product(5,"紫枭",520);
         boolean flag = false;
+        Date now = new Date();
         List<Product> ps = new ArrayList<>();
         ps.add(new Product(1,"product a", 50));
         ps.add(new Product(2,"product b", 100));
@@ -27,6 +29,7 @@ public class TestController {
         m.addAttribute("testBool",flag);
         m.addAttribute("ps",ps);
         m.addAttribute("p",p);
+        m.addAttribute("now",now);
         return "test";
     }
 }

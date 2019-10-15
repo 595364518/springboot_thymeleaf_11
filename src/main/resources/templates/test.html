@@ -62,5 +62,13 @@
         <h2 class="odd">单选框</h2>
         <input name="product" type="radio" th:each="ppp:${ps}" th:checked="${ppp.id == p.id}" th:text="${ppp.name}" th:value="${ppp.id}"/>
     </div>
+    <div class="showing ">
+        直接输出日期用：${now}
+        <p th:text="${now}"></p>
+        使用默认格式：#dates.format(now)
+        <p th:text="${#dates.format(now)}"></p>
+        自定义格式：#dates.format(now,"YY-mm-dd HH:mm:ss")
+        <p th:text="${#dates.format(now,'yy-mm-dd hh:mm:ss')}"></p>
+    </div>
 </body>
 </html>
