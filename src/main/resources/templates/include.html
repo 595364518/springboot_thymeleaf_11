@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf包含外部文件</title>
+</head>
+<center>
+    <footer th:fragment="footer1">
+        <p style="text-align:center">All Rights Reserved By:最潇洒的猪</p>
+    </footer>
+    <footer th:fragment="footer2(start,now)">
+        <p style="text-align:center;" th:text="|${start} - ${now}|">All Rights Reserved</p>
+    </footer>
+</center>
+</html>

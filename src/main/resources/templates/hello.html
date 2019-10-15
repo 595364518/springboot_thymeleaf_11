@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf导入css和js</title>
+    <link rel="stylesheet" type="text/css" href="../../webapp/static/css/style.css" th:href="@{/static/css/style.css}"/>
+    <script type="text/javascript" src="../../webapp/static/js/thymeleaf.js" th:src="@{/static/js/thymeleaf.js}"></script>
+    <script type="text/javascript">
+        testFunction();
+    </script>
+</head>
+<body>
+    <div class="showing">
+        <p class="odd"> Hello</p>
+        <p class="even" th:text="${name}"></p>
+        <p class="odd" th:text="|Hello ${name}|"></p>
+        <p class="even" th:text="'Hello!'+${name}"></p>
+    </div>
+    <div class="showing">
+        <p class="odd"> Hello</p>
+        <p class="even" th:text="${name}"></p>
+        <p class="odd" th:text="|Hello ${name}|"></p>
+        <p class="even" th:text="'Hello!'+${name}"></p>
+    </div>
+    <div class="showing">
+        <div th:replace="include::footer1" ></div>
+        <div th:replace="include::footer2(2019,2025)" ></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf各种表达式</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}"/>
+</head>
+<body>
+    <div class="showing odd">
+        <h2>显示非转义和转义的html</h2>
+        <p th:text="${htmlContent}"></p>
+        <p th:utext="${htmlContent}"></p>
+    </div>
+    <div class="showing even">
+        <h2>显示对象及对象属性</h2>
+        <p th:text="${p}"></p>
+        <p th:text="${p.name}"></p>
+        <p th:text="${p.getName()}"></p>
+    </div>
+    <div class="showing">
+        <p th:if="${testBool}"  class="odd"> If 'testBool' is true ,this statement will show,eles it will be hidden</p>
+        <p th:if="${not testBool}"  class="even"> If 'testBool' is false ,this statement will show,eles it will be hidden</p>
+        <p th:unless="${testBool}"  class="odd"> Same as the last statement.↑</p>
+    </div>
+    <div class="showing odd" th:object="${p}">
+        <h2>*{}方式显示属性</h2>
+        <p th:text="*{name}"></p>
+    </div>
+    <div class="showing even">
+        <h2>price+1314</h2>
+        <p th:text="${p.price+1314}"></p>
+    </div>
+    <div class="showing">
+        <h2 class="odd">表格</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>index</td>
+                    <td>id</td>
+                    <td>name</td>
+                    <td>price</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="pp,status:${ps}" th:class="${status.even}?'even':'odd'">
+                    <td th:text="${status.index}"></td>
+                    <td th:text="${pp.id}"></td>
+                    <td th:text="${pp.name}"></td>
+                    <td th:text="${pp.price}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr/>
+    <div class="showing">
+        <h2 class="even">下拉选</h2>
+        <select>
+            <option th:each="pa:${ps}" th:value="${pa.id}" th:selected="${pa.id == p.id}" th:text="${pa.name}"></option>
+        </select>
+    </div>
+    <div class="showing">
+        <h2 class="odd">单选框</h2>
+        <input name="product" type="radio" th:each="ppp:${ps}" th:checked="${ppp.id == p.id}" th:text="${ppp.name}" th:value="${ppp.id}"/>
+    </div>
+</body>
+</html>
